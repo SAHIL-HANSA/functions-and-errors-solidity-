@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract GreaterNumber {
+    function findGreater(uint256 a, uint256 b, uint256 c) external pure returns (uint256) {
+
+        require(a != b && b != c && a !=c, " Input values must be distinct");
+
+        assert(a != 0 && b != 0 && c != 0);
+
+        if (a > b) {
+            if(a > c) {
+                return a;
+            } else {
+                revert("Input 'c' is the greater number");
+            }
+        } else if (b > c) {
+            return b;
+        } else {
+            revert("Input 'c' is the greater number");
+        }
+    }
+}   
